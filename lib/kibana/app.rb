@@ -1,9 +1,9 @@
 module Kibana
-  class App < Sinatra::Base
+  class App < Sinatra::Application
     configure do
       set :bind, defined?(Configuration::KibanaHost) ? Configuration::KibanaHost : '0.0.0.0'
       set :port, ::Kibana::Configuration::KibanaPort
-      set :public_folder, Proc.new { File.join(root, "static") }
+      set :public_folder, Proc.new { File.join(root, 'public') }
       enable :sessions
     end
 
