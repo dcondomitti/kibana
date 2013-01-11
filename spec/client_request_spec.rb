@@ -1,6 +1,6 @@
 require "spec_helper"
 
-require "KibanaConfig"
+require "Config"
 require "client_request"
 
 describe ClientRequest do
@@ -119,7 +119,7 @@ describe ClientRequest do
 
       cr = ClientRequest.new(b64_hash)
 
-      cr.from.should == (reference_time - KibanaConfig::Fallback_interval)
+      cr.from.should == (reference_time - Configuration::Fallback_interval)
       cr.to.should == reference_time
     end
   end

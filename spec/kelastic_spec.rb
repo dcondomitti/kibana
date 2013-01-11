@@ -1,6 +1,6 @@
 require "spec_helper"
 
-require "KibanaConfig"
+require "Config"
 require "kelastic"
 
 describe "Kelastic" do
@@ -103,13 +103,13 @@ describe "Kelastic" do
 
     it "should fallback to Default_index if Smart_index is false" do
       # TODO: find way to mock this config parameter
-      KibanaConfig::Smart_index = false
+      Configuration::Smart_index = false
 
       result = Kelastic.index_range(Time.parse("2012-11-02 17:00:00 +0100"), Time.parse("2012-11-04 18:00:00 +0100"))
 
       result.should == "_all"
 
-      KibanaConfig::Smart_index = true
+      Configuration::Smart_index = true
     end
   end
 
@@ -124,11 +124,11 @@ describe "Kelastic" do
     end
 
     it "should return Default_index when Smart_index is false" do
-      KibanaConfig::Smart_index = false
+      Configuration::Smart_index = false
 
       Kelastic.current_index.should == "_all"
 
-      KibanaConfig::Smart_index = true
+      Configuration::Smart_index = true
     end
   end
 end
