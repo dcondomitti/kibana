@@ -7,9 +7,6 @@ require 'rss/maker'
 require 'yaml'
 require 'tzinfo'
 
-$LOAD_PATH << '.'
-$LOAD_PATH << './lib'
-
 if ENV["KIBANA_CONFIG"] 
   require ENV["KIBANA_CONFIG"]
 else
