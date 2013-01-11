@@ -1,4 +1,4 @@
-%w[sinatra base64 json time date yaml tzinfo].each { |g| require g }
+%w[sinatra net/http base64 json time date yaml tzinfo].each { |g| require g }
 
 require_relative 'kibana/client_request'
 require_relative 'kibana/id_request'
